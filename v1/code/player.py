@@ -36,10 +36,14 @@ class Player(pygame.sprite.Sprite):
         # normalizing a vector
         if self.direction.magnitude() > 0:
             self.direction = self.direction.normalize()
-        print(self.direction)
 
-        self.pos += self.direction * self.speed * dt
-        self.rect.center = self.pos
+        # horizontal movement
+        self.pos.x += self.direction.x * self.speed * dt
+        self.rect.centerx = self.pos.x
+
+        # vertical movement
+        self.pos.y += self.direction.y * self.speed * dt
+        self.rect.centery = self.pos.y
 
     def update(self, dt):
         self.input()
