@@ -56,7 +56,7 @@ Import Image
 Convert Images
 	Add .convert() after importing the image.
 	Or, .convert_alpha() so the alpha values dont make the image looks weird.
-		snail_surface = pygame.image.load('Assets/graphics/snail/snail1.png').convert()
+		snail_surface = pygame.image.load('Assets/graphics/snail/snail1.png').convert_alpha()
 	Pygame works faster this way.
 Text
 	To create text you have to first create an image of the text, and 

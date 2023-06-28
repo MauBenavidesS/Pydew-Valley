@@ -6,7 +6,7 @@ class Game:
 	def __init__(self):
 		pygame.init()
 		self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-		pygame.display.set_caption('Sprout Land')
+		pygame.display.set_caption("Sprout Land")
 		self.clock = pygame.time.Clock()
 		self.level = Level()
 
@@ -21,6 +21,6 @@ class Game:
 			self.level.run(dt=dt)
 			pygame.display.update()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 	game = Game()
 	game.run()
