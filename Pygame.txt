@@ -174,7 +174,35 @@ Adding Sound
 	self.jump_sound.play()
 	To loop:
 		bg_music.play(loops=-1) # to loop it indefinitely
-
+Delta Time
+	You want your game to be consistent at all times and for every device.
+	But players have different computers that can run your game at different speeds.
+		You have Frames/Second and Pixel/Frame.
+			fps = 10, 30, 60, 120, 600
+			p/f = 10, 10, 10, 10, 10
+			Multiplied: You aget different pixels/second in terms of movement.
+			p/s = 100, 300, 600, 1200, 6000
+		If you dont account for the difference, the game becomes unplayable.
+	You need to limit the maximum framerate.
+	Delta time gives consistent speed at all framerates.
+	Delta time is the difference between the previous and the current frames.
+		60 fps -> Delta time 1/60
+		30 fps -> Delta time 1/30
+		Movement * framerate * deltatime
+		10 * 60 * 1/60 = 10
+		10 * 30 * 1/30 = 10
+			This lets you always have the same amount of pixels per second.
+	Anything that moves needs delta time.
+	Methods to get delta time:
+		- dt = Clock.tick(framerate), easy way but not precise, often used in pygame.
+		- Time module in python: more complex way but much more precise.
+			dt = time.time() - previous_time
+			previous_time = time.time()
+		When we use delta time to move, we are always using floating 
+			point numbers. But in pygame rects need integers.
+	We need to call delta time to make everything framerate independent.
+		self.clock = pygame.time.Clock()
+		dt = self.clock.tick() / 1000
 
 
 
